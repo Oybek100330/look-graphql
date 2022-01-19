@@ -1,0 +1,16 @@
+extend type Query {
+	orders(orderId: ID userId: ID): [Order!]!
+}
+
+extend type Mutation {
+	addOrder(user_id: ID! food_id: ID! count: Int!): MutationResponse!
+	changeOrder(orderId: ID! foodId: ID! count: Int!): MutationResponse!
+	deleteOrder(userId:ID!): MutationResponse!
+}
+
+type Order {
+	orderId: ID!
+	user: User!
+	food: Food!
+	count: Int!
+}
